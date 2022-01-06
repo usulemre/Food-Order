@@ -1,0 +1,20 @@
+.sum {
+  background-color: #383838;
+  max-width: 45rem;
+  width: 90%;
+  margin: auto;
+  font-size: inherit;
+  padding: 0.55rem 1rem;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  border-radius: 14px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.8);
+  color: white;
+  margin-top: -10rem;
+  z-index: 1000;
+}
+.sum h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
