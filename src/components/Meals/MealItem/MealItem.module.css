@@ -1,0 +1,21 @@
+.mealItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+.mealItem h3{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.des { 
+  font-style: italic;
+}
+.price{
+    color: rgb(155, 67, 5);
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
