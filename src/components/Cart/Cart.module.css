@@ -1,7 +1,10 @@
-.item {
+.item{
   list-style: none;
   max-height: 20rem;
-  overflow: auto;
+  overflow: scroll;
+}
+.item::-webkit-scrollbar{
+  display: none;
 }
 .price {
   display: flex;
