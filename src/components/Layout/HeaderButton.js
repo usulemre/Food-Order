@@ -1,14 +1,31 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartContext from "../../store/cart-context";
 import CartIcon from "../Cart/CartIcon";
 import classes from "./HeaderButton.module.css";
 const HeaderButton = (props) => {
+  const [anımasyonButton, setAnımasyonButton] = useState(false);
   const cartCtx = useContext(CartContext);
-  const cartLength = cartCtx.items.reduce((curr, item) => {
+  const { items } = cartCtx;
+  const cartLength = items.reduce((curr, item) => {
     return curr + item.amount;
   }, 0);
+
+  const btnClasses = `${classes.button} ${anımasyonButton ? classes.bump : ""}`;
+
+  useEffect(() => {
+    if (items.length === 0) {
+      return;
+    }
+    setAnımasyonButton(true);
+    const timer = setTimeout(() => {
+      setAnımasyonButton(false);
+    }, 300);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [items]);
   return (
-    <button className={classes.button} onClick={props.onShow}>
+    <button className={btnClasses} onClick={props.onShow}>
       <span className={classes.ıcon}>
         <CartIcon />
       </span>
