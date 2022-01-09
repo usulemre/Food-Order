@@ -30,27 +30,49 @@
   border-radius: 8px;
   border: 1px solid #c5c7bd;
 }
-.action{
-    display: flex;
-    align-items: center;
-    width: 90px;
-    justify-content: space-between;
-    margin-right: 5px;
+.action {
+  display: flex;
+  align-items: center;
+  width: 90px;
+  justify-content: space-between;
+  margin-right: 5px;
 }
-.action button{
-    padding: 0.25rem 1rem;
-    background-color: white;
-    border: none;
-    outline: none;
-    border-radius: 8px;
-    border: 1px solid #8a2b06;
-    color: #8a2b06;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
+.action button {
+  padding: 0.25rem 1rem;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  border: 1px solid #8a2b06;
+  color: #8a2b06;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
 }
 .action button:hover,
-.action button:active{
-    background-color: #8a2b06;
-    color: white;
+.action button:active {
+  background-color: #8a2b06;
+  color: white;
+}
+
+@media (max-width: 678px) {
+  .cart-item h3 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .header {
+    width: 100px;
+  }
+  .amount {
+    padding: 0.1rem 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #c5c7bd;
+  }
+  .action {
+    width: 75px;
+  }
+  .action button {
+    padding: 0.1rem 0.8rem;
+    font-size: 14px;
+  }
 }

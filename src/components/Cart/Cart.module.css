@@ -1,9 +1,9 @@
-.item{
+.item {
   list-style: none;
   max-height: 20rem;
   overflow: scroll;
 }
-.item::-webkit-scrollbar{
+.item::-webkit-scrollbar {
   display: none;
 }
 .price {
@@ -48,4 +48,18 @@
   background-color: #5a1a01;
   border-color: #5a1a01;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .price {
+    font-size: 14px;
+  }
+  .order {
+    padding: 0.1rem 0.5rem;
+    font-size: 10px;
+  }
+  .close {
+    padding: 0.1rem 0.5rem;
+    font-size: 10px;
+  }
 }
