@@ -9,7 +9,7 @@
 }
 .overlay {
   position: fixed;
-  top: 30vh;
+  top: 10vh;
   left: 26%;
   width: 40rem;
   max-width: 60%;
