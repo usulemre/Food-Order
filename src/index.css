@@ -19,3 +19,6 @@ body {
   color: white;
   margin-top: 10px;
 }
+.text-error{
+  color: red;
+}

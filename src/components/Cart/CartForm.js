@@ -1,4 +1,4 @@
-// import classes from "./CartFrom.module.css";
+import classes from "./CartForm.module.css";
 import { useRef, useState } from "react";
 const CartForm = (props) => {
   const nameRef = useRef();
@@ -24,8 +24,8 @@ const CartForm = (props) => {
 
     const nameİsValid = !isValid(nameValue);
     const streetİsValid = !isValid(streetValue);
-    const postaCodİsValid = !isValid(postaCodeValue);
-    const cityİsValid = !ValidLength(cityValue);
+    const postaCodİsValid = !ValidLength(postaCodeValue);
+    const cityİsValid = !isValid(cityValue);
 
     setTouchedIsValid({
       name: nameİsValid,
@@ -41,31 +41,68 @@ const CartForm = (props) => {
       return;
     }
 
-    //submit
+    props.onConfirm({
+      name:nameValue,
+      street:streetValue,
+      postaCode:postaCodeValue,
+      city:cityValue
+    })
   };
+
+  const namedIsValid = `${classes.control} ${
+    touchedIsValid.name ? "" : classes.invalid
+  }`;
+  const streetdIsValid = `${classes.control} ${
+    touchedIsValid.street ? "" : classes.invalid
+  }`;
+  const postadIsValid = `${classes.control} ${
+    touchedIsValid.postaCode ? "" : classes.invalid
+  }`;
+  const citydIsValid = `${classes.control} ${
+    touchedIsValid.city ? "" : classes.invalid
+  }`;
   return (
-    <form onSubmit={addFormHandler}>
-      <div className="">
-        <label htmlFor="name">Name</label>
-        <input id="name" type="text" ref={nameRef} />
-        {!touchedIsValid.name && <p>Name Boş Bırakılamaz!...</p>}
+    <form className={classes.from} onSubmit={addFormHandler}>
+      <div className={classes.flex}>
+        <div>
+          <div className={namedIsValid}>
+            <label htmlFor="name">Name</label>
+            <input id="name" type="text" ref={nameRef} />
+            {!touchedIsValid.name && (
+              <p className="text-error">Name Boş Bırakılamaz!...</p>
+            )}
+          </div>
+          <div className={streetdIsValid}>
+            <label htmlFor="street">Street</label>
+            <input id="street" type="text" ref={streetRef} />
+            {!touchedIsValid.street && (
+              <p className="text-error">Street Boş Bırakılamaz!...</p>
+            )}
+          </div>
+        </div>
+        <div>
+          <div className={postadIsValid}>
+            <label htmlFor="postal">Posta Code</label>
+            <input id="postal" type="text" ref={postaCodeRef} />
+            {!touchedIsValid.postaCode && (
+              <p className="text-error">Posta Code Boş Bırakılamaz!...</p>
+            )}
+          </div>
+          <div className={citydIsValid}>
+            <label htmlFor="city">City</label>
+            <input id="classes" type="text" ref={cityRef} />
+            {!touchedIsValid.city && (
+              <p className="text-error">City Boş Bırakılamaz!...</p>
+            )}
+          </div>
+        </div>
       </div>
-      <div className="">
-        <label htmlFor="street">Street</label>
-        <input id="street" type="text" ref={streetRef} />
+      <div className={classes.action}>
+        <button type="button" onClick={props.onClose}>
+          Cancel
+        </button>
+        <button>Confirm</button>
       </div>
-      <div className="">
-        <label htmlFor="postal">Posta Code</label>
-        <input id="postal" type="text" ref={postaCodeRef} />
-      </div>
-      <div className="">
-        <label htmlFor="city">City</label>
-        <input id="classes" type="text" ref={cityRef} />
-      </div>
-      <button type="button" onClick={props.onClose}>
-        Cancel
-      </button>
-      <button>Confirm</button>
     </form>
   );
 };
